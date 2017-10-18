@@ -1,1 +1,2 @@
-ndoe_modules/
+# Directories ignored
+node_modules/
