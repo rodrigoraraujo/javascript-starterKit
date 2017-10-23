@@ -1,8 +1,16 @@
-import "./index.css";
-import numeral from "numeral";
+import { getUsers } from './api/userApi';
 
-/* eslint-disable no-console */
+getUsers().then(result => {
+    let userBody = "";
+    result.forEach(user => {
+        userBody += `<tr>
+          <td><a href="#" data-id="${user.id}" class="deleteUser">Delete</td>
+          <td>${user.id}</td>
+          <td>${user.firstName}</td>
+          <td>${user.lastName}</td>
+          <td>${user.email}</td>
+          </tr>`
+    });
 
-const courseValue = numeral(1000).format("$0.00");
-//debugger;
-console.log(`I would pay ${courseValue} for this awesome course!`);
+    global.document.getElementById('users').innerHTML = userBody;
+});
