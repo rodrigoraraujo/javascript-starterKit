@@ -1,5 +1,6 @@
 # Directories ignored
 node_modules/
+dist/
 
 #Files
 src/api/db.json
